@@ -12,13 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - run: echo '"'$GITHUB_ACTOR'"'
+
     - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@main
+      uses: github/codeql-action/init@robertbrignull/dependabot_error
       with:
         languages: javascript
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@main
+      uses: github/codeql-action/analyze@robertbrignull/dependabot_error
