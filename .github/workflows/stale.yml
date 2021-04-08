@@ -1,0 +1,11 @@
+name: Test cron
+on:
+  schedule:
+  - cron: "*/15 * * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        curl -X POST --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/dsp-testing/robertbrignull-dependabot-test/issues -d '{"title":"title"}'
